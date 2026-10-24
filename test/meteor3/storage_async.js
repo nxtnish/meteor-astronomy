@@ -1,5 +1,5 @@
 import { Mongo } from 'meteor/mongo';
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/nxtdev:astronomy';
 import { assert } from '../assert';
 
 const Meteor3Documents = new Mongo.Collection('astronomy_meteor3_tests');

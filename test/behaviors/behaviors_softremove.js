@@ -1,4 +1,4 @@
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/nxtdev:astronomy';
 
 Tinytest.add('Behaviors - Softremove', function(test) {
   // Reset Astronomy.

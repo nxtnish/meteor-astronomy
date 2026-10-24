@@ -2,7 +2,7 @@ import { assert } from '../../assert';
 import {
   Class
 }
-from 'meteor/jagi:astronomy';
+from 'meteor/nxtdev:astronomy';
 
 const DefaultNested = Class.create({
   name: 'DefaultNested',

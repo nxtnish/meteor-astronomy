@@ -1,4 +1,4 @@
-import { Validator, Validators } from 'meteor/jagi:astronomy';
+import { Validator, Validators } from 'meteor/nxtdev:astronomy';
 
 Tinytest.add('Modules - Validators - Create', function(test) {
 	reset();

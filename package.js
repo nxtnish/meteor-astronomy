@@ -39,7 +39,7 @@ Package.onTest(function(api) {
       "insecure",
       "mongo",
       "ejson",
-      "jagi:astronomy@3.0.0"
+      "nxtdev:astronomy@3.0.0"
     ],
     ["client", "server"]
   );

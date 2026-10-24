@@ -1,4 +1,4 @@
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/nxtdev:astronomy';
 
 Tinytest.addAsync('Behaviors - Timestamp', function(test, next) {
   // Reset Astronomy.

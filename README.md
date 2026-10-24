@@ -23,7 +23,7 @@ Place this repository in your application's `packages` directory (or add its
 parent directory to `METEOR_PACKAGE_DIRS`), then add the local package:
 
 ```sh
-meteor add jagi:astronomy@3.0.0
+meteor add nxtdev:astronomy@3.0.0
 ```
 
 ## Meteor 3 async API
@@ -126,7 +126,7 @@ For clarity, here is a sample schema that allows that. May seem to be a lot of
 code but have in mind that you write it only once.
 
 ```js
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/nxtdev:astronomy';
 
 const Posts = new Mongo.Collection('posts');
 const Post = Class.create({

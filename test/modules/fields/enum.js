@@ -1,5 +1,5 @@
 import { assert } from '../../assert';
-import { Class, Enum } from 'meteor/jagi:astronomy';
+import { Class, Enum } from 'meteor/nxtdev:astronomy';
 
 const StatusA = Enum.create({
   name: 'StatusA',
