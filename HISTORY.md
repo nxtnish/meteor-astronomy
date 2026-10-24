@@ -1,3 +1,10 @@
+# [3.0.0] (2026-10-24)
+- Require Meteor 3 and move server-side MongoDB operations to async APIs.
+- Add Promise-based class, document, validation, event, and Meteor-method APIs.
+- Preserve synchronous Minimongo operations on the client for existing code.
+- Replace removed Meteor internals and create indexes with `createIndexAsync`.
+- Update Lodash to 4.17.21 and migrate the test stack to `meteortesting:mocha`.
+
 # [2.7.1](/releases/tag/2.7.1) (2019-01-05)
 - Fix #671 by introducing several logging flags:
 ```js

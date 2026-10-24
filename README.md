@@ -1,5 +1,8 @@
 # Astronomy for Meteor
 
+This fork keeps Astronomy available for Meteor 3. It uses Meteor's Promise-based
+Mongo and DDP APIs and requires Meteor 3.0 or newer.
+
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jagi/meteor-astronomy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 <img src="http://jagi.github.io/meteor-astronomy/images/logo.png" />
@@ -16,8 +19,55 @@ You can learn more about Astronomy by watching video tutorials that I'm creating
 
 ## Installation
 
+Place this repository in your application's `packages` directory (or add its
+parent directory to `METEOR_PACKAGE_DIRS`), then add the local package:
+
 ```sh
-$ meteor add jagi:astronomy
+meteor add jagi:astronomy@3.0.0
+```
+
+## Meteor 3 async API
+
+MongoDB operations on the server must be awaited. Use the async Astronomy APIs
+in shared and server code:
+
+```js
+const post = await Post.findOneAsync(postId);
+
+post.title = 'Meteor 3';
+await post.saveAsync();
+
+await Post.updateAsync(postId, {
+  $set: { published: true }
+});
+
+await post.removeAsync();
+```
+
+The following Promise-based methods are available:
+
+- Class methods: `findOneAsync`, `insertAsync`, `updateAsync`, `upsertAsync`,
+  `removeAsync`, and `validateAsync`.
+- Document methods: `saveAsync`, `removeAsync`, `reloadAsync`, `validateAsync`,
+  `getModifierAsync`, `getModifiedAsync`, `getModifiedValuesAsync`, and
+  `isModifiedAsync`.
+- Astronomy Meteor methods: `applyMethodAsync` and `callMethodAsync`.
+- Events: `dispatchEventAsync`. Async storage operations await async event
+  handlers in their normal order.
+
+`find()` still returns a cursor. On the server, consume it with Meteor's async
+cursor methods, for example `await Post.find(selector).fetchAsync()`.
+
+The original mutation names remain available. On the server they now return
+Promises and therefore must be awaited. On the client they retain their
+synchronous Minimongo/stub behavior. Prefer the explicit `*Async` methods for
+code that runs in both environments; they wait for the server result when used
+over DDP.
+
+Run the package tests with Meteor 3 using:
+
+```sh
+meteor test-packages ./ --once --driver-package meteortesting:mocha
 ```
 
 ## Support Astronomy development

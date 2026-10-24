@@ -1,7 +1,4 @@
-import {
-  assert
-}
-from 'meteor/practicalmeteor:chai';
+import { assert } from '../../assert';
 import {
   Class
 }

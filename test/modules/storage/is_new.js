@@ -1,7 +1,4 @@
-import {
-  assert
-}
-from 'meteor/practicalmeteor:chai';
+import { assert } from '../../assert';
 import {
   Class
 }
@@ -27,10 +24,10 @@ describe('Module', function() {
         const doc = new Item();
         assert.isTrue(doc._isNew);
       });
-      it('should have the "_isNew" property set to "false"', () => {
+      it('should have the "_isNew" property set to "false"', async () => {
         let doc = new Item();
-        doc.save();
-        doc = Item.findOne();
+        await doc.saveAsync();
+        doc = await Item.findOneAsync();
         assert.isFalse(doc._isNew);
       });
       it('should not have the "_isNew" property defined', () => {

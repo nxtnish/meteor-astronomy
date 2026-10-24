@@ -1,21 +1,20 @@
 Package.describe({
-  name: "jagi:astronomy",
-  version: "2.7.3",
-  summary: "Model layer for Meteor",
-  git: "https://github.com/jagi/meteor-astronomy.git"
+  name: "nxtdev:astronomy",
+  version: "3.0.0",
+  summary: "Model layer for Meteor 3",
+  git: "https://github.com/nxtnish/meteor-astronomy.git"
 });
 
 Npm.depends({
-  lodash: "4.17.11"
+  lodash: "4.17.21"
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom("1.3");
+  api.versionsFrom("3.0");
 
   api.use(
     [
       "ecmascript",
-      "es5-shim",
       "ddp",
       "mongo",
       "check",
@@ -34,14 +33,13 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use(
     [
-      "practicalmeteor:mocha",
+      "meteortesting:mocha",
       "tinytest",
       "ecmascript",
-      "es5-shim",
       "insecure",
       "mongo",
       "ejson",
-      "jagi:astronomy@2.5.8"
+      "jagi:astronomy@3.0.0"
     ],
     ["client", "server"]
   );
@@ -57,6 +55,7 @@ Package.onTest(function(api) {
     ],
     ["client", "server"]
   );
+  api.addFiles("test/meteor3/storage_async.js", ["client", "server"]);
   // Modules.
   // Modules - Behaviors.
   api.addFiles(
